@@ -5,7 +5,7 @@ import DashboardImage from "./dashboard-image";
 
 const HeroSection = () => {
   return (
-    <div className="md:py-15 relative min-h-screen flex flex-col items-center justify-center text-white space-y-10">
+    <div className="md:py-8 md:pt-45 py-5 relative min-h-screen flex flex-col items-center justify-center text-white space-y-10">
       <DotBackground />
 
       {/* Bright Light Core */}
@@ -16,10 +16,11 @@ const HeroSection = () => {
       />
 
       {/* tags */}
-      <div className="flex items-center gap-2 border-accent-foreground/40 border backdrop-blur-md text-white px-4 py-2 rounded-full shadow-lg">
+      <div className="flex items-center space-x-3 border-accent-foreground/40 border backdrop-blur-md text-white px-4 py-2 rounded-full shadow-lg">
         <span
-          className="h-2 w-2 rounded-full bg-[#2ee66b]
-             shadow-[0_0_8px_rgba(46,230,107,0.85)] animate-pulse"
+          className="h-2.5 w-2.5 rounded-full bg-[#2ee66b]
+         shadow-[0_0_8px_rgba(46,230,107,0.85)]
+         animation-pulse-online"
           aria-hidden="true"
         ></span>
 
@@ -54,7 +55,7 @@ const HeroSection = () => {
       </div>
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 mt-15">
-        <DashboardImage src="/background.svg" />
+        <DashboardImage src="/dashboard.png" />
       </div>
     </div>
   );

@@ -41,6 +41,23 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  @keyframes pulse-online {
+    0% {
+      transform: scale(0.9);
+      /* start with a tight ring */
+      box-shadow: 0 0 0 0 rgba(46, 230, 107, 0.55);
+    }
+    60% {
+      transform: scale(1);
+      /* ring expands and fades out */
+      box-shadow: 0 0 0 14px rgba(46, 230, 107, 0);
+    }
+    100% {
+      transform: scale(0.9);
+      box-shadow: 0 0 0 0 rgba(46, 230, 107, 0);
+    }
+  }
 }
 
 :root {
@@ -149,4 +166,8 @@
 /* Optional: Handle scrollbar corners */
 *::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+.animation-pulse-online {
+  animation: pulse-online 1.8s ease-out infinite;
 }
