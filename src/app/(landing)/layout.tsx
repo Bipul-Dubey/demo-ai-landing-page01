@@ -9,7 +9,13 @@ export default function LandingRootLayout({
   return (
     <div className="bg-black h-screen text-white overflow-y-auto">
       <Header />
-      <div className="py-16">{children}</div>
+      <div
+        style={{
+          minHeight: "calc(100vh - 64px)",
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

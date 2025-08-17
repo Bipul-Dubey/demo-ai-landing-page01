@@ -78,7 +78,7 @@ export default function SideAwareButton({
         "cursor-pointer",
         "relative inline-flex items-center justify-center",
         "h-9 px-6 rounded-full select-none",
-        "font-semibold tracking-wide text-white",
+        "font-semibold tracking-wide text-accent-foreground hover:text-accent",
         "bg-[#0d0d0d]",
         "ring-1 ring-white/10",
         // top bevel

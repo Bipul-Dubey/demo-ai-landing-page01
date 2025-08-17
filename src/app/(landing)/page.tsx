@@ -1,7 +1,12 @@
+import HeroSection from "@/components/HeroSection";
 import React from "react";
 
 const HomePage = () => {
-  return <div className="min-h-[1000px]">hello</div>;
+  return (
+    <div>
+      <HeroSection />
+    </div>
+  );
 };
 
 export default HomePage;
