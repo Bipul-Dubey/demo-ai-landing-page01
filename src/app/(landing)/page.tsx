@@ -1,3 +1,4 @@
+import Experience from "@/components/Experience";
 import HeroSection from "@/components/HeroSection";
 import TrustedPartner from "@/components/TrustedPartner";
 import React from "react";
@@ -7,6 +8,7 @@ const HomePage = () => {
     <div>
       <HeroSection />
       <TrustedPartner />
+      <Experience />
     </div>
   );
 };

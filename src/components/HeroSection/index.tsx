@@ -40,10 +40,7 @@ const HeroSection = () => {
           <span className="block">Smart Inventory</span>
         </h1>
 
-        <p
-          className="max-w-2xl text-base sm:text-lg lg:text-xl
-           text-white/70 leading-relaxed"
-        >
+        <p className="max-w-[610px] section-des">
           Leverage AI‑powered forecasts to prevent stockouts, reduce excess, and
           maximize efficiency.
         </p>

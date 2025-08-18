@@ -171,3 +171,29 @@
 .animation-pulse-online {
   animation: pulse-online 1.8s ease-out infinite;
 }
+
+.section-title {
+  @apply font-bold text-white
+         text-4xl sm:text-5xl lg:text-6xl
+         tracking-tight leading-[1.05]
+         drop-shadow-[0_1px_0_rgba(255,255,255,0.06)];
+}
+
+.section-des {
+  @apply text-zinc-300/70           /* soft, readable gray on dark */
+           text-lg         /* a bit larger than body text */
+           leading-relaxed sm:leading-7
+           tracking-normal
+           antialiased text-center;
+  /* subtle light-from-top sheen similar to the reference */
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
