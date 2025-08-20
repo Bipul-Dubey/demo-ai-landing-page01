@@ -1,6 +1,7 @@
 import * as React from "react";
 import { IntegrationLeft } from "./IntegrationPoint";
 import { IntegrationRight } from "./IntegrationTools";
+import Featured from "./featured";
 
 const Integration: React.FC = () => {
   return (
@@ -9,6 +10,8 @@ const Integration: React.FC = () => {
         <IntegrationLeft />
         <IntegrationRight className="justify-self-center md:justify-self-end" />
       </div>
+
+      <Featured />
     </section>
   );
 };
