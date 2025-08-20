@@ -151,7 +151,7 @@ export default function TimelineDemo() {
   ];
   return (
     <div className="relative w-full overflow-clip py-10">
-      <div className="w-full flex flex-col items-center space-y-9 relative">
+      <div className="w-full flex flex-col items-center text-center space-y-7 px-4 relative">
         <BadgePill>Process</BadgePill>
 
         <h2 className="section-title">3 Simple steps and kickstart</h2>

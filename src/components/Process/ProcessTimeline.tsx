@@ -61,10 +61,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   );
 
   return (
-    <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans lg:px-10"
-      ref={containerRef}
-    >
+    <div className="w-full lg:px-10" ref={containerRef}>
       {/* Timeline body */}
       <div
         ref={listRef}
@@ -108,14 +105,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
 
             {/* Right content. Title hidden on small/medium as requested */}
-            <div className="relative w-full pl-16 lg:pl-4 pr-4">
-              {/* If you want zero title on small devices, keep this hidden */}
-              <h3 className="block lg:hidden sr-only">
-                {stringTitles[index] || item.title}
-              </h3>
-
-              {item.content}
-            </div>
+            <div className="relative w-full px-4">{item.content}</div>
           </div>
         ))}
 

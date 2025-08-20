@@ -14,7 +14,7 @@ export function IntegrationRight({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative mx-auto aspect-square w-[400px] sm:w-[450px] md:w-[500px]",
+        "relative mx-auto aspect-square w-[340px] sm:w-[450px] md:w-[500px]",
         className
       )}
     >
