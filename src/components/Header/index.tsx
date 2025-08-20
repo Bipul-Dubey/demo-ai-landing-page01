@@ -33,11 +33,11 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-transparent">
+    <header className="sticky inset-x-0 top-0 z-50 bg-transparent">
       <nav
         className={cn(
           "flex items-center justify-between px-6 md:px-10 py-2",
-          "backdrop-blur-[3px]"
+          "backdrop-blur-md"
         )}
       >
         {/* Logo and Brand */}
@@ -61,7 +61,9 @@ export default function Header() {
         </div>
 
         {/* Get Started Button Desktop */}
-        <SideAwareButton>GET STARTED</SideAwareButton>
+        <SideAwareButton className="hidden md:flex">
+          GET STARTED
+        </SideAwareButton>
 
         {/* Mobile Dropdown - Hamburger */}
         <div className="md:hidden flex items-center">
@@ -74,7 +76,7 @@ export default function Header() {
             <PopoverContent
               side="bottom"
               align="end"
-              className="mt-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/10 shadow-lg min-w-[180px] px-4 py-6 flex flex-col gap-4"
+              className="mt-2 bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg min-w-[180px] px-4 py-6 flex flex-col gap-4"
             >
               {navLinks.map((link) => (
                 <a
@@ -89,15 +91,7 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <Button
-                className={cn(
-                  "rounded-full px-4 py-2 font-semibold text-white mt-2",
-                  "bg-white/10 border border-white/20",
-                  "hover:bg-white/20 transition shadow-md"
-                )}
-              >
-                GET STARTED
-              </Button>
+              <SideAwareButton>GET STARTED</SideAwareButton>
             </PopoverContent>
           </Popover>
         </div>

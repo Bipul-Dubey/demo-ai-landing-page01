@@ -15,11 +15,11 @@ const Logo = () => {
             fontFamily="sans-serif"
             dy=".3em"
           >
-            C
+            BD
           </text>
         </svg>
       </div>
-      <span className="text-2xl font-medium text-white">Cawar</span>
+      <span className="text-2xl font-medium text-white">BD</span>
     </div>
   );
 };

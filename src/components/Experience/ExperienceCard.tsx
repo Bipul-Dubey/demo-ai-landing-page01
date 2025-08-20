@@ -24,7 +24,7 @@ function GlowCard({ title, desc, className, children }: CardProps) {
           className="
             absolute -inset-[120%] animate-spin-slow
             bg-[conic-gradient(from_0deg,rgba(255,0,153,0.55)_0deg,rgba(99,102,241,0.55)_180deg,rgba(255,0,153,0.55)_360deg)]            "
-          style={{ animationDuration: "10s" }}
+          style={{ animationDuration: "3s" }}
         />
       </div>
 

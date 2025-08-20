@@ -5,7 +5,7 @@ import DashboardImage from "./dashboard-image";
 
 const HeroSection = () => {
   return (
-    <div className="md:py-8 md:pt-45 py-5 relative min-h-screen flex flex-col items-center justify-center text-white space-y-10">
+    <div className="md:py-16 py-10 relative min-h-screen flex flex-col items-center justify-center text-white space-y-10">
       <DotBackground />
 
       {/* Bright Light Core */}
