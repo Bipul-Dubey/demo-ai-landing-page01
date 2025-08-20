@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { BadgePill } from "../common/badge-pill";
 import { Check } from "lucide-react";

@@ -93,8 +93,8 @@ export default function SideAwareButton({
       ].join(" ")}
       style={
         {
-          ["--x" as any]: "20px",
-          ["--y" as any]: "50%",
+          ["--x" as string]: "20px",
+          ["--y" as string]: "50%",
         } as React.CSSProperties
       }
       {...props}

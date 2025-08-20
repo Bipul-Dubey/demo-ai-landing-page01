@@ -1,7 +1,6 @@
 "use client";
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { BadgePill } from "../common/badge-pill";
 
 interface TimelineEntry {
   title: string | React.ReactNode;
