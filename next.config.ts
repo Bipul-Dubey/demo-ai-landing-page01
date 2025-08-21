@@ -9,8 +9,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-    // or (older syntax)
-    // domains: ["assets.aceternity.com"],
+    // Do NOT add your own domain or public here. Not needed.
   },
 };
 
