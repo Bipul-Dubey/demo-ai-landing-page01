@@ -1,4 +1,5 @@
 import Experience from "@/components/Experience";
+import FaqSection from "@/components/FAQSection";
 import HeroSection from "@/components/HeroSection";
 import Integration from "@/components/Integration";
 import PricingSection from "@/components/PricingSection";
@@ -18,6 +19,7 @@ const HomePage = () => {
       <ReviewSection />
       <SecuritySection />
       <PricingSection />
+      <FaqSection />
     </div>
   );
 };
