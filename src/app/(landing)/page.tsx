@@ -1,6 +1,7 @@
 import Experience from "@/components/Experience";
 import HeroSection from "@/components/HeroSection";
 import Integration from "@/components/Integration";
+import PricingSection from "@/components/PricingSection";
 import ProcessSection from "@/components/Process";
 import ReviewSection from "@/components/ReviewSection";
 import SecuritySection from "@/components/SecuritySection";
@@ -13,9 +14,10 @@ const HomePage = () => {
       <TrustedPartner />
       <Experience />
       <ProcessSection />
-      <Integration />
+      {/* <Integration /> */}
       <ReviewSection />
       <SecuritySection />
+      <PricingSection />
     </div>
   );
 };
