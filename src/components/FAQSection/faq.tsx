@@ -5,18 +5,82 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/* One item */
+type Item = { question: string; answer: string };
+
+const faqs: Item[] = [
+  {
+    question: "What pricing plans do you offer?",
+    answer:
+      "We offer flexible plans for different stages—start simple and scale as you grow.",
+  },
+  {
+    question: "Do you offer customer support?",
+    answer:
+      "Yes, we provide 24/7 support to assist with setup, troubleshooting, and any other queries.",
+  },
+  {
+    question: "Is my data secure on this platform?",
+    answer:
+      "Security is built-in: encryption at rest and in transit, access controls, and continuous monitoring.",
+  },
+  {
+    question: "Is there a free trial available?",
+    answer:
+      "Yes, you can try all core features during the trial to evaluate fit before subscribing.",
+  },
+  {
+    question: "Can I set up automated reorder alerts?",
+    answer:
+      "Absolutely. Configure thresholds and we’ll notify or auto-create POs when stock dips.",
+  },
+];
+
+export default function FaqList() {
+  // Controlled accordion: only one open at a time.
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggle = (i: number) => {
+    setOpenIndex((prev) => (prev === i ? null : i));
+  };
+
+  return (
+    <section className="relative">
+      {/* Decorative background: keep inside a clipped wrapper so it doesn't cause horizontal scroll on small screens */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px]" />
+        <div className="absolute -top-16 -left-14 h-56 w-56 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="absolute -bottom-10 -right-14 h-56 w-56 rounded-full bg-violet-500/10 blur-3xl" />
+      </div>
+
+      <div className="mx-auto w-full max-w-2xl space-y-3 sm:space-y-4">
+        {faqs.map((item, i) => (
+          <FAQItem
+            key={i}
+            index={i}
+            question={item.question}
+            answer={item.answer}
+            isOpen={openIndex === i}
+            onToggle={() => toggle(i)}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function FAQItem({
   question,
   answer,
   index,
+  isOpen,
+  onToggle,
 }: {
   question: string;
   answer: string;
   index: number;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -24,7 +88,7 @@ function FAQItem({
       transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
       className="relative"
     >
-      {/* soft halo like reference */}
+      {/* soft halo */}
       <span
         aria-hidden
         className={cn(
@@ -44,8 +108,8 @@ function FAQItem({
       >
         <button
           type="button"
-          onClick={() => setIsOpen((v) => !v)}
-          className="flex w-full items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5"
+          onClick={onToggle}
+          className="flex w-full items-center justify-between gap-4 px-4 sm:px-5 md:px-6 py-4 sm:py-5"
         >
           <h3
             className={cn(
@@ -89,7 +153,7 @@ function FAQItem({
                 },
               }}
             >
-              <div className="border-t border-white/10 px-5 sm:px-6 pb-5 pt-2 sm:pt-3">
+              <div className="border-t border-white/10 px-4 sm:px-5 md:px-6 pb-5 pt-2 sm:pt-3">
                 <motion.p
                   initial={{ y: -6, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -105,51 +169,5 @@ function FAQItem({
         </AnimatePresence>
       </div>
     </motion.div>
-  );
-}
-
-/* List */
-export default function FaqComponents() {
-  const faqs = [
-    {
-      question: "What pricing plans do you offer?",
-      answer:
-        "We offer flexible plans for different stages—start simple and scale as you grow.",
-    },
-    {
-      question: "Do you offer customer support?",
-      answer:
-        "Yes, we provide 24/7 support to assist with setup, troubleshooting, and any other queries.",
-    },
-    {
-      question: "Is my data secure on this platform?",
-      answer:
-        "Security is built-in: encryption at rest and in transit, access controls, and continuous monitoring.",
-    },
-    {
-      question: "Is there a free trial available?",
-      answer:
-        "Yes, you can try all core features during the trial to evaluate fit before subscribing.",
-    },
-    {
-      question: "Can I set up automated reorder alerts?",
-      answer:
-        "Absolutely. Configure thresholds and we’ll notify or auto-create POs when stock dips.",
-    },
-  ];
-
-  return (
-    <section className="relative">
-      {/* Decorative background dots/halos like reference */}
-      <div className="pointer-events-none absolute -inset-6 -z-10 opacity-40 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:12px_12px]" />
-      <div className="pointer-events-none absolute -top-16 -left-24 -z-10 h-56 w-56 rounded-full bg-fuchsia-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-10 -right-24 -z-10 h-56 w-56 rounded-full bg-violet-500/10 blur-3xl" />
-
-      <div className="mx-auto max-w-2xl space-y-3 sm:space-y-4">
-        {faqs.map((f, i) => (
-          <FAQItem key={i} question={f.question} answer={f.answer} index={i} />
-        ))}
-      </div>
-    </section>
   );
 }
