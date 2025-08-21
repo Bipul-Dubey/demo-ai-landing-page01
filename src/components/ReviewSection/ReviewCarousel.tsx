@@ -98,7 +98,7 @@ export default function ReviewCarousel({ className }: { className?: string }) {
 
   return (
     <MotionConfig transition={{ duration: DUR, ease: CAROUSEL_EASE }}>
-      <section
+      <div
         className={cn(
           "relative mx-auto max-w-7xl px-4 py-10 text-white",
           className
@@ -137,55 +137,62 @@ export default function ReviewCarousel({ className }: { className?: string }) {
         </div>
 
         {/* Viewport */}
-        <div className="relative overflow-hidden">
-          <motion.div
-            className="flex flex-nowrap"
-            style={{ willChange: "transform" }}
-            animate={{ x: trackX }}
-          >
-            {ITEMS.map((it, i) => {
-              const visibleNow = windowIndices.includes(i);
-              const isEntering = i === enteringIndex;
+        <motion.div
+          initial={{ y: 48, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+        >
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="flex flex-nowrap"
+              style={{ willChange: "transform" }}
+              animate={{ x: trackX }}
+            >
+              {ITEMS.map((it, i) => {
+                const visibleNow = windowIndices.includes(i);
+                const isEntering = i === enteringIndex;
 
-              return (
-                <div
-                  key={it.id}
-                  ref={i === index ? slideRef : null}
-                  className="
+                return (
+                  <div
+                    key={it.id}
+                    ref={i === index ? slideRef : null}
+                    className="
                     px-3 sm:px-3.5
                     shrink-0
                     basis-full
                     sm:basis-1/2
                     md:basis-1/3
                   "
-                  aria-hidden={!visibleNow}
-                >
-                  <div className="relative h-full">
-                    <AnimatePresence initial={false} mode="popLayout">
-                      <motion.div
-                        key={
-                          isEntering
-                            ? `enter-${it.id}-${index}-${dir}`
-                            : `static-${it.id}-${index}`
-                        }
-                        initial={
-                          isEntering
-                            ? cornerEnter(dir)
-                            : { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }
-                        }
-                        animate={cornerCenter}
-                        className="h-full"
-                      >
-                        <Card data={it} />
-                      </motion.div>
-                    </AnimatePresence>
+                    aria-hidden={!visibleNow}
+                  >
+                    <div className="relative h-full">
+                      <AnimatePresence initial={false} mode="popLayout">
+                        <motion.div
+                          key={
+                            isEntering
+                              ? `enter-${it.id}-${index}-${dir}`
+                              : `static-${it.id}-${index}`
+                          }
+                          initial={
+                            isEntering
+                              ? cornerEnter(dir)
+                              : { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }
+                          }
+                          animate={cornerCenter}
+                          className="h-full"
+                        >
+                          <Card data={it} />
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
+                );
+              })}
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </MotionConfig>
   );
 }

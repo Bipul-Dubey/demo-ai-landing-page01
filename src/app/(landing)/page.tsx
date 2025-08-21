@@ -2,7 +2,7 @@ import Experience from "@/components/Experience";
 import FaqSection from "@/components/FAQSection";
 import FooterSection from "@/components/FooterSection";
 import HeroSection from "@/components/HeroSection";
-// import Integration from "@/components/Integration";
+import Integration from "@/components/Integration";
 import PricingSection from "@/components/PricingSection";
 import ProcessSection from "@/components/Process";
 import ReviewSection from "@/components/ReviewSection";
@@ -16,7 +16,7 @@ const HomePage = () => {
       <TrustedPartner />
       <Experience />
       <ProcessSection />
-      {/* <Integration /> */}
+      <Integration />
       <ReviewSection />
       <SecuritySection />
       <PricingSection />

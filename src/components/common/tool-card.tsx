@@ -1,3 +1,7 @@
+"use client";
+
+import * as React from "react";
+import { motion, Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export type TToolItem = {
@@ -10,19 +14,49 @@ interface IntegrationToolsProps {
   items: TToolItem[];
 }
 
+const container: Variants = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.04,
+      staggerChildren: 0.09, // quick, one-by-one
+    },
+  },
+};
+
+const cardItem: Variants = {
+  hidden: { opacity: 0, y: 22 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
+
 export const ToolCards: React.FC<IntegrationToolsProps> = ({ items }) => {
   return (
     <section className="w-full py-12 px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         {items.map((item, i) => (
-          <div key={i} className="flex flex-col text-left space-y-4">
-            {/* Icon container with glow effect */}
-            <div
+          <motion.div
+            key={i}
+            variants={cardItem}
+            className="flex flex-col text-left space-y-4"
+          >
+            {/* Icon container with glow effect (hover lift) */}
+            <motion.div
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.18, ease: "easeOut" }}
               className={cn(
                 "relative flex h-16 w-16 items-center justify-center rounded-full isolate",
-                // dark glass core
                 "bg-[#0e0f14] border border-white/20",
-                // depth
                 "shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
               )}
             >
@@ -69,16 +103,16 @@ export const ToolCards: React.FC<IntegrationToolsProps> = ({ items }) => {
               <span className="relative z-10 text-xl text-white drop-shadow-[0_0_10px_rgba(167,139,250,0.8)]">
                 {item.icon}
               </span>
-            </div>
+            </motion.div>
 
             {/* Title */}
             <h3 className="text-lg font-semibold text-white">{item.title}</h3>
 
             {/* Description */}
             <p className="text-sm text-gray-400">{item.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

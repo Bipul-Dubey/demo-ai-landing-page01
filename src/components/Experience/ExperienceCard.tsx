@@ -1,6 +1,8 @@
 // components/ExperienceCard.tsx
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { motion, Variants } from "framer-motion";
 
 type CardProps = {
   title: string;
@@ -51,40 +53,75 @@ function GlowCard({ title, desc, className, children }: CardProps) {
   );
 }
 
+const container = {
+  hidden: { opacity: 1 }, // keep parent visible
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function ExperienceCard() {
   return (
     <section className="w-full">
-      {/* Grid: 1 col → 2 cols (md) → 6 cols (lg) for precise spans */}
-      <div className="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-6">
-        {/* Row 1 (3 cards, each 2/6 = 33.33%) */}
-        <GlowCard
-          className="lg:col-span-2"
-          title="Forecasting"
-          desc="AI-powered demand projections with seasonality and promotions."
-        />
-        <GlowCard
-          className="lg:col-span-2"
-          title="Replenishment"
-          desc="Automated reorder points to prevent stockouts."
-        />
-        <GlowCard
-          className="lg:col-span-2"
-          title="Optimization"
-          desc="Reduce excess inventory while keeping service levels high."
-        />
+      <motion.div
+        className="grid gap-4 sm:gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-6"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div variants={item} className="lg:col-span-2">
+          <GlowCard
+            title="Forecasting"
+            desc="AI-powered demand projections with seasonality and promotions."
+          />
+        </motion.div>
 
-        {/* Row 2 (two halves, each 3/6 = 50%) */}
-        <GlowCard
-          className="lg:col-span-3"
-          title="Supplier Collaboration"
-          desc="Share live plans and confirmations with vendors."
-        />
-        <GlowCard
-          className="lg:col-span-3"
-          title="Analytics"
-          desc="Root-cause insights, ABC segmentation, and lead-time risk."
-        />
-      </div>
+        <motion.div variants={item} className="lg:col-span-2">
+          <GlowCard
+            title="Replenishment"
+            desc="Automated reorder points to prevent stockouts."
+          />
+        </motion.div>
+
+        <motion.div variants={item} className="lg:col-span-2">
+          <GlowCard
+            title="Optimization"
+            desc="Reduce excess inventory while keeping service levels high."
+          />
+        </motion.div>
+
+        {/* Row 2 (two halves, each 3/6) */}
+        <motion.div variants={item} className="lg:col-span-3">
+          <GlowCard
+            title="Supplier Collaboration"
+            desc="Share live plans and confirmations with vendors."
+          />
+        </motion.div>
+
+        <motion.div variants={item} className="lg:col-span-3">
+          <GlowCard
+            title="Analytics"
+            desc="Root-cause insights, ABC segmentation, and lead-time risk."
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
