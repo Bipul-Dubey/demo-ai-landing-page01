@@ -88,7 +88,7 @@ const HeroSection = () => {
         transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <DashboardImage src="/dashboard.png" />
+        <DashboardImage src="/dashboard.jpg" />
       </motion.div>
     </div>
   );

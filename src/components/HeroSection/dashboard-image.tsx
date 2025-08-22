@@ -35,7 +35,7 @@ const DashboardImage = ({
           alt={alt}
           fill
           priority
-          className="object-cover"
+          className="object-fill"
           sizes="100vw"
         />
       </div>

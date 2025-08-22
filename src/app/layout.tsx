@@ -9,7 +9,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const SITE_URL = "";
+const SITE_URL = "https://ai-landing-01.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

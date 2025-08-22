@@ -1,4 +1,3 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,8 +7,12 @@ const nextConfig = {
         hostname: "assets.aceternity.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "framerusercontent.com",
+        pathname: "/**",
+      },
     ],
-    // Do NOT add your own domain or public here. Not needed.
   },
 };
 
