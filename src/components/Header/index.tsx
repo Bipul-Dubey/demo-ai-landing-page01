@@ -13,7 +13,7 @@ import Logo from "./Logo";
 import SideAwareButton from "../ui/side-aware-button";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },

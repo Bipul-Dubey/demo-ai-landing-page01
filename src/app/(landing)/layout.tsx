@@ -1,3 +1,4 @@
+import FooterSection from "@/components/FooterSection";
 import Header from "@/components/Header";
 import React from "react";
 
@@ -9,7 +10,8 @@ export default function LandingRootLayout({
   return (
     <div className="bg-black h-screen text-white overflow-y-auto">
       <Header />
-      <div>{children}</div>
+      <div className="scroll-smooth">{children}</div>
+      <FooterSection />
     </div>
   );
 }

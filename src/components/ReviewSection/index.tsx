@@ -1,10 +1,20 @@
+"use client";
 import React from "react";
 import ReviewCarousel from "./ReviewCarousel";
 import { BadgePill } from "../common/badge-pill";
+import { useInView } from "framer-motion";
 
 const ReviewSection = () => {
+  const viewRef = React.useRef<HTMLDivElement | null>(null);
+
+  const isInView = useInView(viewRef, {
+    margin: "-100px 0px 0px 0px",
+    once: true,
+    amount: "some",
+  });
+
   return (
-    <section className="py-15 space-y-7">
+    <section className="py-15 space-y-7" ref={viewRef}>
       <div className="w-full flex flex-col items-center space-y-9 px-4">
         <BadgePill>Review</BadgePill>
 
@@ -15,7 +25,7 @@ const ReviewSection = () => {
           prevents stock issues.
         </p>
       </div>
-      <ReviewCarousel />
+      {isInView && <ReviewCarousel />}
     </section>
   );
 };

@@ -32,7 +32,7 @@ export function BadgePill({
       )}
     >
       <span
-        className="font-medium text-[16px] py-2 pb-2.5 leading-none tracking-tight bg-clip-text text-transparent"
+        className="font-medium text-[16px] py-2 pb-[9px] leading-none tracking-tight bg-clip-text text-transparent"
         style={{
           backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`,
         }}

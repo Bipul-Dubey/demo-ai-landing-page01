@@ -12,14 +12,19 @@ const bullets = [
 
 export function IntegrationLeft({ className }: { className?: string }) {
   return (
-    <div className={cn("space-y-10", className)}>
+    <div
+      className={cn(
+        "space-y-10 flex flex-col items-center sm:items-start",
+        className
+      )}
+    >
       <div>
         <BadgePill>Integration</BadgePill>
       </div>
 
       <h2 className="section-title">Seamless Integrations</h2>
 
-      <p className="section-des text-left!">
+      <p className="section-des max-w-[500px] sm:text-left!">
         Connect with Unicommerce, logistics, and customer care tools to
         streamline your operations.
       </p>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { IntegrationLeft } from "./IntegrationPoint";
-// import { IntegrationRight } from "./IntegrationTools";
+import { IntegrationRight } from "./IntegrationTools";
 import Featured from "./featured";
 
 const Integration: React.FC = () => {
